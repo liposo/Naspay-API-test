@@ -10,13 +10,16 @@ import java.util.ArrayList;
 public class Client {
 
     private Auth auth;
+    
+    private String baseUrl;
 
     public Client(String baseUrl, String terminalKey, String terminalSecret) {
         this.auth = new Auth(terminalKey, terminalSecret);
+        this.baseUrl = baseUrl;
         auth.authenticate(baseUrl);
     }
 
-    public String getTransactionStatus(String baseUrl, String id) {
+    public String getTransactionStatus(String id) {
         String transactionStatus;
 
         if(this.auth.getToken().isValid()) {
@@ -31,7 +34,7 @@ public class Client {
         restTemplate.setInterceptors(interceptors);
 
         try {
-            Transaction response = restTemplate.getForObject(baseUrl + "/api/v1/transactions/"+id, Transaction.class);
+            Transaction response = restTemplate.getForObject(this.baseUrl + "/api/v1/transactions/"+id, Transaction.class);
 
             transactionStatus = response.getState();
 

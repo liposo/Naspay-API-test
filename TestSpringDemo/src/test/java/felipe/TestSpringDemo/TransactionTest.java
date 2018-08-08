@@ -19,12 +19,33 @@ public class TransactionTest {
     Client client = new Client(baseUrl, terminalKey, terminalSecret);
 
     @Test
-    public void isEqualsTest() {
-        assertEquals("AUTHORIZED", client.getTransactionStatus(baseUrl, authorized));
-        assertEquals("DECLINED", client.getTransactionStatus(baseUrl, declined));
-        assertEquals("TIMEOUT", client.getTransactionStatus(baseUrl, timeout));
-        assertEquals("COMPLETED", client.getTransactionStatus(baseUrl, completed));
-        assertEquals("Transaction not found", client.getTransactionStatus(baseUrl, notFound));
+    public void isEqualsAuthorizedTest() {
+    	
+        assertEquals("AUTHORIZED", client.getTransactionStatus(authorized));
+    }
+    
+    @Test
+    public void isEqualsDeclineddTest() {
+    
+        assertEquals("DECLINED", client.getTransactionStatus(declined));
+    }
+    
+    @Test
+    public void isEqualsTimeoutTest() {
+    
+        assertEquals("TIMEOUT", client.getTransactionStatus(timeout));
+    }
+    
+    @Test
+    public void isEqualsCompletedTest() {
+    
+        assertEquals("COMPLETED", client.getTransactionStatus(completed));
+    }
+    
+    @Test
+    public void isEqualsNotFoundTest() {
+    
+        assertEquals("Transaction not found", client.getTransactionStatus(notFound));
     }
 
 }

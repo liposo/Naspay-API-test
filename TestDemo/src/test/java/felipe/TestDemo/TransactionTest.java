@@ -15,15 +15,35 @@ public class TransactionTest {
     private static final String completed = "1261481f9625430887e155817e45ec33";
     private static final String notFound = "f33ae3006b074e649c1095ff8fb35e93";
 
+    Client client = new Client(terminalKey, terminalSecret);
 
     @Test
-    public void isEqualsTest() {
-    	Client client = new Client(terminalKey, terminalSecret);
-    
+    public void isEqualsAuthorizedTest() {
+    	
         assertEquals("AUTHORIZED", client.getTransactionStatus(authorized));
+    }
+    
+    @Test
+    public void isEqualsDeclineddTest() {
+    
         assertEquals("DECLINED", client.getTransactionStatus(declined));
+    }
+    
+    @Test
+    public void isEqualsTimeoutTest() {
+    
         assertEquals("TIMEOUT", client.getTransactionStatus(timeout));
+    }
+    
+    @Test
+    public void isEqualsCompletedTest() {
+    
         assertEquals("COMPLETED", client.getTransactionStatus(completed));
+    }
+    
+    @Test
+    public void isEqualsNotFoundTest() {
+    
         assertEquals("Transaction not found", client.getTransactionStatus(notFound));
     }
 }

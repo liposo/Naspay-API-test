@@ -1,13 +1,14 @@
 package felipe.TestDemo;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	String terminalKey = "api-demo";
+        String terminalSecret = "test123";
+    	
+        Client client = new Client(terminalKey, terminalSecret);
+        //GET transaction status by transaction id
+        //client.getTransactionStatus(id);
     }
 }

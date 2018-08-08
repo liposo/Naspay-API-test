@@ -75,10 +75,10 @@ public class Client {
 				return transaction.getState();
 			} else {
 				switch (statusCode) {
-				case 400: return "Invalid input";
-	            case 401: return "Bearer token is missing or invalid";
-	            case 404: return "Transaction not found";
-	            default: return "Unknown error";
+					case 400: return "Invalid input";
+		            case 401: return "Bearer token is missing or invalid";
+		            case 404: return "Transaction not found";
+		            default: return "Unknown error";
 				}
 			}
 		}
